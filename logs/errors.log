@@ -1,0 +1,49 @@
+
+    [2025-05-10T10:47:21.462Z] - Erreur :
+    logError is not defined
+    Stack Trace:
+    ReferenceError: logError is not defined
+    at Object.execute (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\commands\testError.js:14:13)
+    at Client.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\index.js:99:23)
+    at Client.emit (node:events:518:28)
+    at InteractionCreateAction.handle (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\actions\InteractionCreate.js:97:12)
+    at module.exports [as INTERACTION_CREATE] (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\handlers\INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\WebSocketManager.js:351:31)
+    at WebSocketManager.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\WebSocketManager.js:235:12)
+    at WebSocketManager.emit (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@vladfrangu\async_event_emitter\dist\index.cjs:287:31)
+    at WebSocketShard.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@discordjs\ws\dist\index.js:1190:51)
+    at WebSocketShard.emit (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@vladfrangu\async_event_emitter\dist\index.cjs:287:31)
+    ----------------------------------------
+    
+[2025-05-10T10:51:38.778Z] - Erreur :
+Ceci est une fausse erreur générée pour le test !
+Stack Trace:
+Error: Ceci est une fausse erreur générée pour le test !
+    at Object.execute (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\commands\testError.js:8:15)
+    at Client.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\index.js:94:23)
+    at Client.emit (node:events:518:28)
+    at InteractionCreateAction.handle (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\actions\InteractionCreate.js:97:12)
+    at module.exports [as INTERACTION_CREATE] (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\handlers\INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\WebSocketManager.js:351:31)
+    at WebSocketManager.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\WebSocketManager.js:235:12)
+    at WebSocketManager.emit (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@vladfrangu\async_event_emitter\dist\index.cjs:287:31)
+    at WebSocketShard.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@discordjs\ws\dist\index.js:1190:51)
+    at WebSocketShard.emit (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@vladfrangu\async_event_emitter\dist\index.cjs:287:31)
+----------------------------------------
+
+    [2025-05-10T10:51:38.914Z] - Erreur :
+    logError is not defined
+    Stack Trace:
+    ReferenceError: logError is not defined
+    at Object.execute (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\commands\testError.js:14:13)
+    at Client.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\index.js:99:23)
+    at Client.emit (node:events:518:28)
+    at InteractionCreateAction.handle (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\actions\InteractionCreate.js:97:12)
+    at module.exports [as INTERACTION_CREATE] (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\handlers\INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\WebSocketManager.js:351:31)
+    at WebSocketManager.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\discord.js\src\client\websocket\WebSocketManager.js:235:12)
+    at WebSocketManager.emit (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@vladfrangu\async_event_emitter\dist\index.cjs:287:31)
+    at WebSocketShard.<anonymous> (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@discordjs\ws\dist\index.js:1190:51)
+    at WebSocketShard.emit (D:\Users\Utilisateur\OneDrive\Bureau\bot-discord\node_modules\@vladfrangu\async_event_emitter\dist\index.cjs:287:31)
+    ----------------------------------------
+    
