@@ -10,27 +10,37 @@ if (!fs.existsSync(logsDirectory)) {
 }
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages]
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildVoiceStates
+    ]
 });
 
 client.commands = new Collection();
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.data.name, command);
+// === Chargement des commandes depuis les sous-dossiers ===
+const commands = [];
+const commandsPath = path.join(__dirname, 'commands');
+const commandFolders = fs.readdirSync(commandsPath);
+
+for (const folder of commandFolders) {
+    const folderPath = path.join(commandsPath, folder);
+    const commandFiles = fs.readdirSync(folderPath).filter(file => file.endsWith('.js'));
+
+    for (const file of commandFiles) {
+        const command = require(path.join(folderPath, file));
+        if ('data' in command && 'execute' in command) {
+            client.commands.set(command.data.name, command);
+            commands.push(command.data.toJSON());
+        }
+    }
 }
 
-// Déploiement des commandes
+// === Déploiement des commandes ===
 const deployCommands = async () => {
-    const commands = commandFiles.map(file => {
-        const command = require(`./commands/${file}`);
-        return command.data.toJSON();
-    });
-
     const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
-
     try {
         console.log('🔁 Rafraîchissement des commandes slash...');
         await rest.put(
@@ -44,7 +54,7 @@ const deployCommands = async () => {
     }
 };
 
-// Logger d'erreurs
+// === Logger d'erreurs ===
 function logError(error) {
     const logPath = path.join(logsDirectory, 'errors.log');
     const timestamp = new Date().toISOString();
@@ -52,7 +62,7 @@ function logError(error) {
     fs.appendFileSync(logPath, errorDetails, 'utf8');
 }
 
-// Permissions
+// === Vérification des permissions ===
 const checkPermissions = (interaction, command) => {
     if (['mute', 'unmute', 'clear', 'clearall'].includes(command.data.name)) {
         if (!interaction.member.roles.cache.has(moderatorRoleId)) {
@@ -71,12 +81,12 @@ const checkPermissions = (interaction, command) => {
 
 client.once('ready', async () => {
     console.log(`✅ Connecté en tant que ${client.user.tag}`);
-    await client.application.fetch(); // 🔄 pour avoir client.application.id
+    await client.application.fetch(); // nécessaire pour client.application.id
     await deployCommands();
 });
 
 client.on('interactionCreate', async interaction => {
-    if (!interaction.isCommand()) return;
+    if (!interaction.isChatInputCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
     if (!command) return;
